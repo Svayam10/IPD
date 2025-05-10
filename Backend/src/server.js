@@ -19,4 +19,4 @@ app.use(bodyParser.json());
 
 app.use("/predict", predictRoute);
 
-app.listen(PORT, () => console.log(`Backend running on http://localhost:${process.env.PORT}`));
+app.listen(process.env.PORT, () => console.log(`Backend running on http://localhost:${process.env.PORT}`));
