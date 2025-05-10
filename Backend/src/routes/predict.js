@@ -55,7 +55,7 @@ router.post("/", (req, res) => {
 });
 
 // ------------------- Recommendations Route -------------------
-router.post("/recommend", async (req, res) => {
+router.post(`${BACKEND_URL}/recommend`, async (req, res) => {
   try {
     const { predictedClass, ...userInputs } = req.body;
 

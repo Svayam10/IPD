@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const BACKEND_URL = import.meta.env.BACKEND_URL;
+
 const initialState = {
   NETMONTHLYINCOME: "",
   AGE: "",
@@ -35,7 +37,7 @@ const Form = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/predict", {
+      const response = await fetch(`${BACKEND_URL}/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

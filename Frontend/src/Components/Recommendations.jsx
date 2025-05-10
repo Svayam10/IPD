@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+const BACKEND_URL = import.meta.env.BACKEND_URL;
+
 
 const Recommendations = () => {
   const location = useLocation();
@@ -12,7 +14,7 @@ const Recommendations = () => {
   useEffect(() => {
     const fetchRecommendations = async () => {
       try {
-        const response = await fetch("http://localhost:5000/predict/recommend", {
+        const response = await fetch(`${BACKEND_URL}/recommend`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ predictedClass, ...userInputs }),

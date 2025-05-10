@@ -6,8 +6,16 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const app = express();
+// import cors from "cors";
+
+// const corsOptions = {
+//   origin: [`http://localhost:${process.env.PORT}`, "https://your-frontend.vercel.app"], // Add your frontend's URL
+//   methods: ["GET", "POST"],
+//   allowedHeaders: ["Content-Type"],
+// };
+
 app.use(cors());
+const app = express();
 app.use(bodyParser.json());
 
 app.use("/predict", predictRoute);
