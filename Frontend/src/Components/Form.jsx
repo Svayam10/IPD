@@ -64,7 +64,6 @@ const Form = () => {
     navigate("/recommendations", { state: { predictedClass, ...formData } });
   };
 
-  // Group form fields for better organization
   const financialFields = [
     { label: "Monthly Income (₹)", name: "NETMONTHLYINCOME", icon: "₹" },
     { label: "Credit Card Utilization (%)", name: "CC_utilization", icon: "%" },

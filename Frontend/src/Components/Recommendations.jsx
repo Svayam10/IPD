@@ -41,9 +41,7 @@ const Recommendations = () => {
   }, [predictedClass, userInputs]);
 
   const formatText = (text) => {
-    // Bold (**text**)
     text = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-    // Italic (*text* or _text_)
     text = text.replace(/\*(.*?)\*/g, "<em>$1</em>");
     text = text.replace(/_(.*?)_/g, "<em>$1</em>");
     return text;

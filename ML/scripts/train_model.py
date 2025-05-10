@@ -101,7 +101,6 @@ plt.tight_layout()
 plt.savefig(os.path.join(OUTPUTS_DIR, "model_accuracy_comparison.png"))
 plt.close()
 
-# === Save best model ===
 joblib.dump(best_model, os.path.join(MODELS_DIR, "best_model.pkl"))
 
 print(f"\n✅ Best Model: {best_model_name} with Accuracy: {best_acc:.4f}")

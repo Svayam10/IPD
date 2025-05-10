@@ -17,7 +17,6 @@ const pythonScriptPath = path.resolve(__dirname, "../../../ML/predict.py");
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
-// ✅ In-memory cache for recommendations
 const recommendationsCache = new Map();
 
 // ------------------- Prediction Route -------------------
@@ -60,10 +59,8 @@ router.post("/recommend", async (req, res) => {
   try {
     const { predictedClass, ...userInputs } = req.body;
 
-    // ✅ Serialize request for caching
     const cacheKey = JSON.stringify({ predictedClass, ...userInputs });
 
-    // ✅ Return cached result if available
     if (recommendationsCache.has(cacheKey)) {
       console.log("Returning cached recommendation");
       return res.json({ recommendations: recommendationsCache.get(cacheKey) });
@@ -105,7 +102,6 @@ router.post("/recommend", async (req, res) => {
     const response = await result.response;
     const recommendations = response.text().trim();
 
-    // ✅ Store in cache
     recommendationsCache.set(cacheKey, recommendations);
 
     res.json({ recommendations });
