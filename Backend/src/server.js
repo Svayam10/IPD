@@ -5,20 +5,18 @@ import predictRoute from "./routes/predict.js";
 import dotenv from "dotenv";
 
 dotenv.config();
+const corsOptions = {
+  origin: [`http://localhost:${process.env.PORT}`, `${process.env.FRONTEND_URL}`], // Add your frontend's URL
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+};
 
-// import cors from "cors";
-
-// const corsOptions = {
-//   origin: [`http://localhost:${process.env.PORT}`, "https://your-frontend.vercel.app"], // Add your frontend's URL
-//   methods: ["GET", "POST"],
-//   allowedHeaders: ["Content-Type"],
-// };
 const app = express();
-app.use(cors());
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 
 app.use("/predict", predictRoute);
 
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Backend running on http://localhost:${process.env.PORT}`));
