@@ -13,9 +13,9 @@ dotenv.config();
 //   methods: ["GET", "POST"],
 //   allowedHeaders: ["Content-Type"],
 // };
-
-app.use(cors());
 const app = express();
+app.use(cors());
+
 app.use(bodyParser.json());
 
 app.use("/predict", predictRoute);
