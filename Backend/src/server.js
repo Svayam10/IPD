@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const corsOptions = {
-  origin: [`http://localhost:${process.env.PORT}`, `${process.env.FRONTEND_URL}`], // Add your frontend's URL
+  origin: ["http://localhost:5173", "https://credilift.vercel.app"], // Add your frontend's URL
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
 };
