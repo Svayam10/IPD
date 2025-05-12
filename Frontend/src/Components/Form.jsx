@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const BACKEND_URL = import.meta.env.BACKEND_URL;
+import dotenv from "dotenv";
+dotenv.config();
+const BACKEND_URL = process.env.BACKEND_URL;
 
 const initialState = {
   NETMONTHLYINCOME: "",
